@@ -11,6 +11,13 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+
+Auth::routes();
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
+
+Route::resource('message_board', 'MessageBoardController');
+
+
