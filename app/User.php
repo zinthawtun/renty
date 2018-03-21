@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'name', 'email', 'password','role_id'
     ];
 
     /**
@@ -29,9 +29,9 @@ class User extends Authenticatable
     ];
 
 
-    public function getRole()
+    public function role()
     {
-        return $this->hasOne('App\Role');
+        return $this->belongsTo('App\Role');
     }
 
     public function verifyUser()
@@ -39,10 +39,12 @@ class User extends Authenticatable
         return $this->hasOne('App\VerifyUser');
     }
 
-    public function wirtePost()
+    public function message_board()
     {
-        return $this->hasOne('App\MessageBoard');
+        return $this->hasOne('App\Category', 'user_id', 'id');
     }
+
+
 
     public $incrementing = false;
 }

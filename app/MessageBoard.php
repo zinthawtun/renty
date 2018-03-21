@@ -8,15 +8,19 @@ class MessageBoard extends Model
 {
     protected $table = 'message_boards';
 
+    protected $fillable = [
+        'title', 'category_id', 'content', 'user_id'
+    ];
+
     protected $guarded = [];
 
     public function category()
     {
-        return $this->belongsTo('App\Category', 'category_id');
+        return $this->belongsTo('App\Category');
     }
 
     public function user()
     {
-        return $this->belongsTo('App\User', 'user_id');
+        return $this->belongsTo('App\User');
     }
 }

@@ -12,23 +12,28 @@ class CategoriesTableSeeker extends Seeder
     public function run()
     {
         DB::table('categories')->insert([
-            'name' => "Warning"
+            'name' => "Warning",
+            'type' => "warning"
         ]);
 
         DB::table('categories')->insert([
-            'name' => "Information"
+            'name' => "Information",
+            'type' => "info"
         ]);
 
         DB::table('categories')->insert([
-            'name' => "Advertisement"
+            'name' => "Advertisement",
+            'type' => "dark"
         ]);
 
         DB::table('categories')->insert([
-            'name' => "Announcement"
+            'name' => "Announcement",
+            'type' => "success"
         ]);
 
         DB::table('categories')->insert([
-            'name' => "Special Offer"
+            'name' => "Special Offer",
+            'type' => "primary"
         ]);
     }
 }
