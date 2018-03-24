@@ -36,11 +36,26 @@
 
                             @foreach($properties as $property)
                                 <div class="card" style="width: 35rem;">
-
                                     <div class="card-body">
                                         <h5 class="card-title">{{$property->post_code}}</h5>
                                         <p class="card-text">{{$property->address}}</p>
-                                        <a class="btn btn-sm btn-light" href="{{route('properties.edit', $property->id)}}" role="button">Edit</a>
+
+                                        <form action="{{ route('properties.destroy',$property->id) }}" method="POST">
+                                            <a class="btn btn-sm btn-light" href="{{route('properties.edit', $property->id)}}" role="button">Edit</a>
+                                            @csrf
+                                            @method('DELETE')
+                                            <button type="submit" onclick="myFunction()" class="btn btn-sm btn-danger">Delete</button>
+                                        </form>
+                                        <script>
+                                            function myFunction() {
+                                                var r = confirm("Are you sure?");
+                                                if (r==true) {
+                                                    window.location.href = "/home";
+                                                } else {
+                                                    window.location.href = "/home";
+                                                }
+                                            }
+                                        </script>
                                     </div>
                                 </div>
                                 <br>

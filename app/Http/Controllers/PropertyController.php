@@ -98,9 +98,10 @@ class PropertyController extends Controller
      * @param  \App\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function show(Property $property)
+    public function oneProperty($id)
     {
-        //
+        $property = Property::where('id', $id)->get()->first();
+        return view('properties.view',compact('property'));
     }
 
     /**

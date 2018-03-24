@@ -31,9 +31,10 @@ Route::resource('boards', 'MessageBoardController', ['only' => [
 ]]);
 
 Route::resource('properties', 'PropertyController', ['only' => [
-    'index', 'show', 'create', 'update', 'edit', 'destroy','store',
+    'index', 'create', 'update', 'edit', 'destroy','store',
 ]]);
 
 
+Route::get('/properties/{id}', 'PropertyController@oneProperty')->name('property');
 
 
