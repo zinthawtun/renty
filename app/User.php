@@ -44,6 +44,11 @@ class User extends Authenticatable
         return $this->hasOne('App\Category', 'user_id', 'id');
     }
 
+    public function property()
+    {
+        return $this->hasOne('App\Property', 'user_id', 'id');
+    }
+
 
 
     public $incrementing = false;

@@ -6,8 +6,6 @@ use App\Category;
 use App\MessageBoard;
 use Dotenv\Validator;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Input;
-use Illuminate\Support\Facades\Redirect;
 
 class MessageBoardController extends Controller
 {
@@ -49,7 +47,7 @@ class MessageBoardController extends Controller
     /**
      * Get a validator for an incoming registration request.
      *
-     * @param  array  $data
+     * @param array $request
      * @return \Illuminate\Contracts\Validation\Validator
      */
     protected function validator(array $request)

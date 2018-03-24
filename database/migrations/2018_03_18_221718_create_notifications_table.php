@@ -17,9 +17,6 @@ class CreateNotificationsTable extends Migration
             $table->increments('id');
             $table->string('message');
             $table->string('p_id');
-            $table->foreign('p_id')
-                ->references('id')->on('properties')
-                ->onDelete('cascade');
             $table->string('user_id');
             $table->foreign('user_id')
                 ->references('id')->on('users')

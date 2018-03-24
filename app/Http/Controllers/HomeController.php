@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Property;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,6 +24,8 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+        $uid = Auth()->id();
+        $properties = Property::all()->where('user_id', $uid);
+        return view('home', compact('properties'));
     }
 }

@@ -20,12 +20,19 @@ Route::get('/', function () {
 
 Route::get('/home', 'HomeController@index')->name('home');
 
+Route::get('profile', 'UserController@profile');
+
+Route::post('profile', 'UserController@update_avatar');
+
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');
 
 Route::resource('boards', 'MessageBoardController', ['only' => [
     'index', 'show', 'create', 'update', 'edit', 'destroy','store',
 ]]);
 
+Route::resource('properties', 'PropertyController', ['only' => [
+    'index', 'show', 'create', 'update', 'edit', 'destroy','store',
+]]);
 
 
 

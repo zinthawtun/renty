@@ -153,6 +153,8 @@ return [
 
         willvincent\Rateable\RateableServiceProvider::class,
         Bogardo\Mailgun\MailgunServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
+        Codescheme\Postcodes\PostcodeServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -213,6 +215,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
         'Uuid' => Webpatser\Uuid\Uuid::class,
+        'Image' => Intervention\Image\Facades\Image::class,
+        'Postcode' => Codescheme\Postcodes\Facades\Postcode::class,
 
     ],
 

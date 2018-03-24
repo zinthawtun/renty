@@ -14,17 +14,18 @@ class CreatePropertiesTable extends Migration
     public function up()
     {
         Schema::create('properties', function (Blueprint $table) {
-            $table->uuid('id')->primary();
+            $table->increments('id');
             $table->string('address');
-            $table->string('p_type');
+            $table->string('type_id');
             $table->string('user_id');
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
-            $table->string('property_key');
+            $table->string('post_code');
+            $table->string('property_key')->nullable();
             $table->date('expired_date')->nullable();
             $table->integer('tenant_no');
-            $table->string('p_style');
+            $table->string('style_id');
             $table->timestamps();
         });
     }
