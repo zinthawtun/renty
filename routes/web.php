@@ -37,4 +37,13 @@ Route::resource('properties', 'PropertyController', ['only' => [
 
 Route::get('/properties/{id}', 'PropertyController@oneProperty')->name('property');
 
+Route::get('landlordReview', 'UserController@lReview')->name('landlordReview');
+Route::get('tenantReview', 'UserController@tReview')->name('tenantReview');
+Route::post('reviewPost', 'UserController@postReview')->name('reviews.post');
+Route::get('reviews/{id}', 'UserController@showReview')->name('reviews.show');
+
+
+Route::get('invite/{id}', 'NotificationController@createInvite')->name('invite');
+Route::put('sendInvitation/{id}', 'NotificationController@sendInviteMail')->name('sendInvitation');
+Route::put('properties/connect', 'NotificationController@connectP')->name('properties/connect');
 

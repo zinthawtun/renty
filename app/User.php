@@ -4,11 +4,13 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
+use willvincent\Rateable\Rateable;
 
 class User extends Authenticatable
 {
     use Notifiable;
     use Uuids;
+    use Rateable;
 
     /**
      * The attributes that are mass assignable.
@@ -47,6 +49,11 @@ class User extends Authenticatable
     public function property()
     {
         return $this->hasOne('App\Property', 'user_id', 'id');
+    }
+
+    public function ranks()
+    {
+        return $this->hasOne('App\Ranks', 'user_id', 'id');
     }
 
 

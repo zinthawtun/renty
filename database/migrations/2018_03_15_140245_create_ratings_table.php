@@ -23,6 +23,7 @@ class CreateRatingsTable extends Migration
                 ->onDelete('cascade');
             $table->index('rateable_id');
             $table->index('rateable_type');
+            $table->integer('count')->default(0);
             $table->timestamps();
         });
     }

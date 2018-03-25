@@ -21,8 +21,15 @@
                     <li><a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a></li>
 
                 @else
-
                     <li><a class="nav-link" href="{{ route('home') }}">Home</a></li>
+                    @if($user = auth()->user())
+                        @if($user->role->id == 1)
+                            <li><a class="nav-link" href="{{ route('landlordReview') }}">Patents Ranks</a></li>
+                        @endif
+                        @if($user->role->id == 2)
+                            <li><a class="nav-link" href="{{ route('tenantReview') }}">Landlords Ranks</a></li>
+                        @endif
+                    @endif
 
                     <li class="nav-item dropdown">
                         <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -32,7 +39,7 @@
                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
 
                             <a class="dropdown-item" href="{{ url('/profile') }}">
-                             Profile
+                                Profile
                             </a>
 
 

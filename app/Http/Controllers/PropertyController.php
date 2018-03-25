@@ -147,8 +147,11 @@ class PropertyController extends Controller
      * @param  \App\Property  $property
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Property $property)
+    public function destroy($id)
     {
-        //
+        $property = Property::find($id);
+        $property->delete();
+
+        return redirect('/properties')->with('status', 'Your property information has been deleted.');
     }
 }
