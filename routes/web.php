@@ -45,5 +45,11 @@ Route::get('reviews/{id}', 'UserController@showReview')->name('reviews.show');
 
 Route::get('invite/{id}', 'NotificationController@createInvite')->name('invite');
 Route::put('sendInvitation/{id}', 'NotificationController@sendInviteMail')->name('sendInvitation');
-Route::put('properties/connect', 'NotificationController@connectP')->name('properties/connect');
+
+Route::get('property/connect', 'NotificationController@connectP')->name('properties/connect');
+
+Route::post('properties/sendConnect', 'NotificationController@sendConnectP')->name('connect.connect');
+
+
+
 

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Mail\sendInvitation;
 use App\Property;
+use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Validation\Validator;
@@ -57,6 +58,29 @@ class NotificationController extends Controller
         Mail::to($email)->send(new sendInvitation($property));
 
         return redirect('/home')->with('status', 'You have successfully sent invitation letter');
+
+    }
+
+    public function connectP(){
+        return view('properties.connect');
+    }
+
+    public function sendConnectP(Request $request){
+//
+               $f_key = Property::where('property_key', $request['property_key'])->first();
+               if(isset($f_key)){
+                   $user = User::find(auth()->id());
+                   $user->property_key = $request['property_key'];
+                   $user->save();
+
+                   return redirect()->route('home')->with('status', 'You have successfully connected');
+
+               }
+               else{
+                   return view('properties.connect')->with('warning', 'You are using the wrong key');
+               }
+
+
 
     }
 }
