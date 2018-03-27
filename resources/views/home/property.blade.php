@@ -18,11 +18,9 @@
 
                     @if($no_t != $property->tenant_no)
                         <a class="btn btn-sm btn-dark" href="{{route('invite', $property->id)}}" role="button">Invite</a>
-
-                    @else()
-
-                        <a class="btn btn-sm btn-light" role="button">Linked</a>
-                        <a class="btn btn-sm btn-dark"  href="{{route('LinkedUsers', $property->id)}}" role="button">Send Message</a>
+                    @endif
+                    @if($no_t !=0)
+                        <a class="btn btn-sm btn-dark"  href="{{route('LinkedUsers', $property->id)}}" role="button">Linked Users</a>
                     @endif
                     <script>
                         function myFunction() {
@@ -52,7 +50,7 @@
                     <p class="card-text">{{$property->address}}</p>
                     <br>
                         <a class="btn btn-sm btn-light" role="button">Linked</a>
-                        <a class="btn btn-sm btn-dark" href="{{route('createMessage', $property->id, $user->id)}}" role="button">Send Message</a>
+                    <a class="btn btn-sm btn-dark"  href="{{route('Messages', $property->user_id)}}" role="button">Send Message</a>
                 </div>
             </div>
             <br>

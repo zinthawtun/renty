@@ -46,7 +46,7 @@ Route::get('reviews/{id}', 'UserController@showReview')->name('reviews.show');
 Route::get('invite/{id}', 'ContractController@createInvite')->name('invite');
 Route::put('sendInvitation/{id}', 'ContractController@sendInviteMail')->name('sendInvitation');
 
-Route::get('property/connect', 'ContractController@connectP')->name('properties/connect');
+
 
 Route::post('properties/sendConnect', 'ContractController@sendConnectP')->name('connect.connect');
 
@@ -54,10 +54,19 @@ Route::get('showLinks/{id}', 'NotificationController@showLinks')->name('LinkedUs
 
 Route::get('showMessages/{id}', 'NotificationController@messages')->name('Messages');
 
+Route::get('showMessages2/{id}', 'NotificationController@messages2')->name('Messages2');
+
 Route::get('createMessages/{id}', 'NotificationController@createMessages')->name('createMessages');
 
 Route::post('sendMessages/{id}', 'NotificationController@sendMessages')->name('sendMessages');
 
+Route::get('editMessages/{id}', 'NotificationController@editMessages')->name('editMessages');
+
+Route::put('updateMessages/{id}', 'NotificationController@updateMessages')->name('updateMessages');
+
+Route::delete('deleteMessages/{id}', 'NotificationController@deleteMessages')->name('deleteMessages');
+
+Route::post('disconnectProperty/{id}', 'ContractController@disconnectP')->name('disconnect.P');
 
 
 

@@ -8,9 +8,11 @@ class N_type extends Model
 {
     protected $table ="n_types";
 
-    public function n_type()
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\HasOne
+     */
+    public function notification()
     {
-
         return $this->hasOne('App\Notification', 'n_id', 'id');
     }
 }

@@ -10,7 +10,6 @@ class Category extends Model
 
     public function message_board()
     {
-
         return $this->hasOne('App\MessageBoard', 'category_id', 'id');
     }
 }

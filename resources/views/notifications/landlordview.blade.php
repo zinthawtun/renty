@@ -26,7 +26,13 @@
                                                     <p class="card-text">{{$tenant->email}}</p>
                                                     <br>
 
-                                                        <a class="btn btn-sm btn-light" role="button">Disconnect</a>
+                                                    <form action="{{ route('disconnect.P',$tenant->id) }}" method="POST">
+
+                                                        @csrf
+
+                                                        <button type="submit" class="btn btn-sm btn-danger">Disconnect</button>
+                                                    </form>
+
                                                         <a class="btn btn-sm btn-dark"  href="{{route('Messages', $tenant->id)}}" role="button">Messages</a>
 
                                                 </div>

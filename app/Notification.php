@@ -12,8 +12,20 @@ class Notification extends Model
         'n_id', 'message', 'user_id', 'p_id'
     ];
 
-    public function n_type()
+    protected $guarded = [];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function type()
     {
         return $this->belongsTo('App\N_type');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
+
 }

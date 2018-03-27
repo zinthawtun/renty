@@ -67,14 +67,14 @@ class UserController extends Controller
 
     public function lReview(){
 
-        $lrates = User::all()->where('role_id', '2');
+        $lrates = User::where('role_id', '2')->simplePaginate(10);
         return view('ranks.lreviews', compact('lrates') );
 
     }
 
     public function tReview(){
 
-        $trates = User::all()->where('role_id', '1');
+        $trates = User::where('role_id', '1')->simplePaginate(10);;
         return view('ranks.treviews', compact('trates') );
     }
 

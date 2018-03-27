@@ -3,10 +3,10 @@
 @section('content')
     <ul class="nav nav-tabs" role="tablist">
         <li class="nav-item">
-            <a class="nav-link active" href="{{route('Messages', $id)}}" role="tab">Sent Messages</a>
+            <a class="nav-link active" href="{{route('Messages', $id)}}" role="tab" >Sent Messages</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="{{route('Messages2', $id)}}" role="tab" >Receive Messages</a>
+            <a class="nav-link" href="{{route('Messages2', $id)}}" role="tab" >Received Messages</a>
         </li>
 
     </ul>
@@ -22,6 +22,7 @@
     <div class="container">
         @if ($user = auth()->user())
             <div class="container">
+
                 <div class="row">
                     <a class="btn btn-sm btn-dark" href="{{route('createMessages', $id)}}" role="button" align="left">Write
                         Something</a>
@@ -39,8 +40,6 @@
                                 <p> {{$mes->message}} </p>
                                 <p>This message is : @if($mes->n_id == 1) Urgent Response @else Basic @endif </p>
                             </div>
-
-
                             <form action="{{ route('deleteMessages',$mes->id) }}" method="POST">
 
 
@@ -56,11 +55,11 @@
                             </form>
 
                         @endforeach
-                            <nav>
-                                <ul class="pagination justify-content-end">
-                                    {{ $s_messages->links() }}
-                                </ul>
-                            </nav>
+                        <nav>
+                            <ul class="pagination justify-content-end">
+                                {{ $s_messages->links() }}
+                            </ul>
+                        </nav>
 
                     </div>
 

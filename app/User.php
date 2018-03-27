@@ -61,6 +61,12 @@ class User extends Authenticatable
         return $this->hasOne('App\Ranks', 'user_id', 'id');
     }
 
+    public function notification()
+    {
+        return $this->hasOne('App\Notification', 'user_id', 'id');
+    }
+
+
 
 
     public $incrementing = false;
