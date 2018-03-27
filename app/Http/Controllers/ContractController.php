@@ -90,11 +90,9 @@ class ContractController extends Controller
     public function disconnectP($id){
 
             $user = User::find($id);
-            $notification = Notification::all()->where('r_id', auth()->id());
-            $a_noti = Notification::all()->where('user_id', $id);
+            $a_noti = Notification::where('user_id', $id);
             $user->property_key = null;
             $user->linked_property = null;
-            $notification->delete();
             $a_noti->delete();
             $user->save();
 

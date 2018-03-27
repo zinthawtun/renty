@@ -66,7 +66,7 @@ Route::put('updateMessages/{id}', 'NotificationController@updateMessages')->name
 
 Route::delete('deleteMessages/{id}', 'NotificationController@deleteMessages')->name('deleteMessages');
 
-Route::post('disconnectProperty/{id}', 'ContractController@disconnectP')->name('disconnect.P');
+Route::delete('disconnectProperty/{id}', 'ContractController@disconnectP')->name('disconnect.P');
 
 
 

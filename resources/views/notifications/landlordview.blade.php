@@ -29,9 +29,11 @@
                                                     <form action="{{ route('disconnect.P',$tenant->id) }}" method="POST">
 
                                                         @csrf
+                                                        @method('delete')
 
                                                         <button type="submit" class="btn btn-sm btn-danger">Disconnect</button>
                                                     </form>
+                                                    <br>
 
                                                         <a class="btn btn-sm btn-dark"  href="{{route('Messages', $tenant->id)}}" role="button">Messages</a>
 
