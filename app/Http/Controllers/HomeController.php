@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Property;
+use App\User;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -24,8 +25,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $uid = Auth()->id();
-        $properties = Property::all()->where('user_id', $uid);
-        return view('home', compact('properties'));
+        $uid = auth()->user();
+        $properties = Property::all()->where('user_id', $uid->id);
+        if($uid->role_id == 1)
+        {
+        $c_property = Property::where('user_id', $uid->id)->first();
+        $no_t = User::all()->where('linked_property', $c_property->id)->count();
+        }
+        $l_properties = Property::all()->where('property_key', $uid->property_key);
+
+        return view('home', compact('properties', 'l_properties', 'no_t'));
     }
 }

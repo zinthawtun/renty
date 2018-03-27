@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateNotificationsTable extends Migration
+class CreateUsersNotifications extends Migration
 {
     /**
      * Run the migrations.
@@ -15,12 +15,13 @@ class CreateNotificationsTable extends Migration
     {
         Schema::create('notifications', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('message');
-            $table->string('p_id');
+            $table->integer('n_id');
+            $table->text('message');
             $table->string('user_id');
             $table->foreign('user_id')
                 ->references('id')->on('users')
                 ->onDelete('cascade');
+            $table->string('p_id');
             $table->timestamps();
         });
     }

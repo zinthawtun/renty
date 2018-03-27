@@ -17,7 +17,9 @@
                                         <div class="details col-md-6">
                                             <h3 class="product-title">Ratting User</h3>
                                             <div class="rating">
-                                                <h4>{{$review->name}}</h4>
+
+                                                <h3>{{$review->name}}</h3>
+                                                <img src="/uploads/avatars/{{ $review->avatar }}" style="width:150px; height:150px; float:left; border-radius:50%; margin-right:25px;">
                                                 <p>{{$review->email}}</p>
                                                 <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="{{ $review->userAverageRating }}" data-size="xs">
                                                 <input type="hidden" name="id" required="" value="{{ $review->id }}">

@@ -36,6 +36,11 @@ class User extends Authenticatable
         return $this->belongsTo('App\Role');
     }
 
+    public function n_type()
+    {
+        return $this->belongsTo('App\N_type');
+    }
+
     public function verifyUser()
     {
         return $this->hasOne('App\VerifyUser');

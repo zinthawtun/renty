@@ -3,9 +3,14 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Notifications\Notifiable;
+use willvincent\Rateable\Rateable;
 
 class Property extends Model
 {
+    use Notifiable;
+    use Uuids;
+    use Rateable;
 
     protected $table = 'properties';
 
@@ -28,4 +33,6 @@ class Property extends Model
     {
         return $this->belongsTo('App\P_style');
     }
+
+    public $incrementing = false;
 }

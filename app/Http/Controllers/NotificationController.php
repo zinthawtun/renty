@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Mail\sendInvitation;
+use App\Mail\sendNotification;
+use App\N_type;
+use App\Notification;
 use App\Property;
 use App\User;
 use Illuminate\Http\Request;
@@ -23,12 +26,27 @@ class NotificationController extends Controller
         $this->middleware('auth');
     }
 
-    public function createInvite($id)
+
+    public function showLinks($id)
     {
 
-        $property = Property::find($id);
-        return view('notifications.invitation', compact('property'));
+        $users = User::all()->where('linked_property', $id);
+        return view('notifications.landlordview', compact('users'));
+    }
 
+    public function messages($id)
+    {
+        $pid = $id;
+        $messages = Notification::where('user_id', $id)->latest()->simplePaginate(5);
+        return view('notifications.messages', compact('messages', 'pid'))
+            ->with('i', (request()->input('page', 1) - 1) * 5);
+    }
+
+    public function createMessages($id)
+    {
+        $n_types = N_type::all();
+        $user = User::find($id);
+        return view('notifications.createMessages', compact('n_types', 'user'));
     }
 
     /**
@@ -40,47 +58,37 @@ class NotificationController extends Controller
     protected function validator(array $request)
     {
         return Validator::make($request, [
-            'email' => 'required',
-            'expired_date'      => 'required|date|after:yesterday',
+            'message' => 'required',
+             'n_id' => 'required',
         ]);
     }
 
-    public function sendInviteMail($id, Request $request)
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function sendMessages($id, Request $request)
     {
-        $property = Property::find($id);
-        $p_key =  str_random(25);
-        $property->property_key = $p_key;
-        $property->expired_date = $request['expired_date'];
-        $property->save();
 
-        $email = $request['email'];
+        $user = User::find($id);
+        $l_user = auth()->user();
 
-        Mail::to($email)->send(new sendInvitation($property));
+        Notification::create([
+            'user_id' => $user['id'],
+            'message' => $request['message'],
+            'n_id' => $request['n_type'],
+            'p_id' => auth()->id(),
+        ]);
 
-        return redirect('/home')->with('status', 'You have successfully sent invitation letter');
+        $email = $user['email'];
 
-    }
-
-    public function connectP(){
-        return view('properties.connect');
-    }
-
-    public function sendConnectP(Request $request){
-//
-               $f_key = Property::where('property_key', $request['property_key'])->first();
-               if(isset($f_key)){
-                   $user = User::find(auth()->id());
-                   $user->property_key = $request['property_key'];
-                   $user->save();
-
-                   return redirect()->route('home')->with('status', 'You have successfully connected');
-
-               }
-               else{
-                   return view('properties.connect')->with('warning', 'You are using the wrong key');
-               }
-
+        Mail::to($email)->send(new sendNotification($user, $l_user));
 
 
     }
 }
+
+

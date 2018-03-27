@@ -43,12 +43,22 @@ Route::post('reviewPost', 'UserController@postReview')->name('reviews.post');
 Route::get('reviews/{id}', 'UserController@showReview')->name('reviews.show');
 
 
-Route::get('invite/{id}', 'NotificationController@createInvite')->name('invite');
-Route::put('sendInvitation/{id}', 'NotificationController@sendInviteMail')->name('sendInvitation');
+Route::get('invite/{id}', 'ContractController@createInvite')->name('invite');
+Route::put('sendInvitation/{id}', 'ContractController@sendInviteMail')->name('sendInvitation');
 
-Route::get('property/connect', 'NotificationController@connectP')->name('properties/connect');
+Route::get('property/connect', 'ContractController@connectP')->name('properties/connect');
 
-Route::post('properties/sendConnect', 'NotificationController@sendConnectP')->name('connect.connect');
+Route::post('properties/sendConnect', 'ContractController@sendConnectP')->name('connect.connect');
+
+Route::get('showLinks/{id}', 'NotificationController@showLinks')->name('LinkedUsers');
+
+Route::get('showMessages/{id}', 'NotificationController@messages')->name('Messages');
+
+Route::get('createMessages/{id}', 'NotificationController@createMessages')->name('createMessages');
+
+Route::post('sendMessages/{id}', 'NotificationController@sendMessages')->name('sendMessages');
+
+
 
 
 

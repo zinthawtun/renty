@@ -5,9 +5,9 @@ namespace App\Http\Controllers;
 use App\P_style;
 use App\P_type;
 use App\Property;
-use Codescheme\Postcodes\Classes\Postcode;
 use Illuminate\Http\Request;
 use Illuminate\Validation\Validator;
+use Webpatser\Uuid\Uuid;
 
 class PropertyController extends Controller
 {

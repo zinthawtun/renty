@@ -21,7 +21,9 @@ class CreateUsersTable extends Migration
             $table->boolean('verified')->default(false);
             $table->string('avatar')->nullable();
             $table->integer('role_id')->nullable();
+            $table->string('linked_property')->nullable();
             $table->string('property_key')->nullable();
+            $table->date('expired_date')->nullable();
             $table->rememberToken();
             $table->timestamps();
         });
