@@ -30,7 +30,10 @@ class HomeController extends Controller
         if($uid->role_id == 1)
         {
         $c_property = Property::where('user_id', $uid->id)->first();
+        if ($c_property != null)
+        {
         $no_t = User::all()->where('linked_property', $c_property->id)->count();
+        }
         }
         if($uid->role_id == 2)
         {

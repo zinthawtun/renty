@@ -1,7 +1,7 @@
 @if($user->role->name == 'Landlord')
     <h5  class=""> Properties</h5>
     <div class="jumbotron">
-
+@if($properties!=null)
         @foreach($properties as $property)
             <div class="card">
                 <div class="card-body">
@@ -36,7 +36,7 @@
             </div>
             <br>
         @endforeach
-
+@endif
     </div>
 @endif
 @if($user->role->name == 'Tenant')
