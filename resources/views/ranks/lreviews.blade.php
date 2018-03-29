@@ -25,7 +25,7 @@
                                 <th width="400px">Star</th>
                                 <th width="100px">View</th>
                             </tr>
-                            @if($lrates->count())
+                            @if($lrates!=null)
                                 @foreach($lrates as $rate)
                                     <tr>
 

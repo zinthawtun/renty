@@ -26,7 +26,7 @@
                                 <th width="100px">View</th>
                             </tr>
 
-                            @if($trates->count())
+                            @if($trates!=null)
                                 @foreach($trates as $rate)
                                     <tr>
 
