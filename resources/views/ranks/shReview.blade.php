@@ -1,6 +1,7 @@
 @extends('layouts.app2')
 
 @section('content')
+    @if($user = auth()->user())
     @include('layouts.extra')
     <div class="container">
         <div class="row">
@@ -24,7 +25,11 @@
                                                 <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="{{ $review->userAverageRating }}" data-size="xs">
                                                 <input type="hidden" name="id" required="" value="{{ $review->id }}">
                                                 <br/>
+                                                @if(count($review->is_set))
+                                                    <a class="btn btn-primary btn-sm" disabled>Done</a>
+                                                @else
                                                 <button class="btn btn-dark">Submit</button>
+                                                @endif
                                             </div>
                                         </div>
                                     </div>
@@ -41,4 +46,5 @@
     <script type="text/javascript">
         $("#input-id").rating();
     </script>
+    @endif
 @endsection

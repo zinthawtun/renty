@@ -35,7 +35,9 @@
                                                     </form>
                                                     <br>
 
-                                                        <a class="btn btn-sm btn-dark"  href="{{route('Messages', $tenant->id)}}" role="button">Messages</a>
+                                                   <p><a class="btn btn-sm btn-dark"  href="{{route('Messages', $tenant->id)}}" role="button">Send Messages</a></p>
+
+                                                   <p><a href="{{ route('reviews.show',$tenant->id) }}" class="btn btn-dark btn-sm" >Write Review</a></p>
 
                                                 </div>
                                             </div>
