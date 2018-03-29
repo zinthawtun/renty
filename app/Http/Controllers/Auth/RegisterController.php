@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Auth;
 
 use App\Mail\VerifyMail;
 use App\User;
+use App\Role;
 use App\Http\Controllers\Controller;
 use App\VerifyUser;
 use http\Env\Request;
@@ -56,6 +57,12 @@ class RegisterController extends Controller
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
+    }
+
+    public function showRegistrationForm()
+    {
+        $roles = Role::all();
+        return view('auth.register', compact('roles'));
     }
 
     /**

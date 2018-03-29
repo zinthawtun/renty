@@ -74,7 +74,7 @@ class UserController extends Controller
 
     public function tReview(){
 
-        $trates = User::where('role_id', '1')->simplePaginate(10);;
+        $trates = User::where('role_id', '1')->simplePaginate(10);
         return view('ranks.treviews', compact('trates') );
     }
 

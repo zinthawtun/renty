@@ -46,7 +46,7 @@ Route::get('reviews/{id}', 'UserController@showReview')->name('reviews.show');
 Route::get('invite/{id}', 'ContractController@createInvite')->name('invite');
 Route::put('sendInvitation/{id}', 'ContractController@sendInviteMail')->name('sendInvitation');
 
-
+Route::get('property/connect', 'ContractController@connectP');
 
 Route::post('properties/sendConnect', 'ContractController@sendConnectP')->name('connect.connect');
 

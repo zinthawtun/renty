@@ -32,7 +32,8 @@ class HomeController extends Controller
         $c_property = Property::where('user_id', $uid->id)->first();
         $no_t = User::all()->where('linked_property', $c_property->id)->count();
         }
-        if($uid->role_id == 2){
+        if($uid->role_id == 2)
+        {
         $l_properties = Property::all()->where('property_key', $uid->property_key);
         }
         return view('home', compact('properties', 'l_properties', 'no_t'));

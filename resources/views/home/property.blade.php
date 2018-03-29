@@ -51,6 +51,8 @@
                     <br>
                         <a class="btn btn-sm btn-light" role="button">Linked</a>
                     <a class="btn btn-sm btn-dark"  href="{{route('Messages', $property->user_id)}}" role="button">Send Message</a>
+
+                    <a href="{{ route('reviews.show',$property->user_id) }}" class="btn btn-primary btn-sm" >Write Review</a>
                 </div>
             </div>
             <br>
