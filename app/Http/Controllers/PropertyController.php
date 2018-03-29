@@ -85,7 +85,7 @@ class PropertyController extends Controller
             'user_id' => auth()->id(),
         ]);
 
-            return redirect('/properties')->with('status', 'You have successfully posted');
+            return redirect('/home')->with('status', 'You have successfully created');
         }
         else{
             return redirect('/properties/create')->with('warning', 'You have problem with postcode');
@@ -152,6 +152,6 @@ class PropertyController extends Controller
         $property = Property::find($id);
         $property->delete();
 
-        return redirect('/properties')->with('status', 'Your property information has been deleted.');
+        return redirect('/home')->with('status', 'Your property information has been deleted.');
     }
 }

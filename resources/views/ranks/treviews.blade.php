@@ -25,12 +25,11 @@
                                 <th width="400px">Star</th>
                                 <th width="100px">View</th>
                             </tr>
-
                             @if($trates!=null)
                                 @foreach($trates as $rate)
                                     <tr>
 
-                                        <td>{{ $rate->name }}</td>
+                                        <td>{{$rate->name }}</td>
                                         <td>
                                             <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $rate->averageRating }}" data-size="xs" disabled="">
                                         </td>
@@ -41,6 +40,7 @@
                                                 <a href="{{ route('reviews.show',$rate->id) }}" class="btn btn-primary btn-sm" >View</a>
                                             @endif()
                                         </td>
+
 
                                     </tr>
                                 @endforeach

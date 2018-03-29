@@ -25,7 +25,7 @@
                                 <th width="400px">Star</th>
                                 <th width="100px">View</th>
                             </tr>
-                            @if($lrates!=null)
+                            @if(count($lrates)>0)
                                 @foreach($lrates as $rate)
                                     <tr>
 
@@ -34,7 +34,7 @@
                                             <input id="input-1" name="input-1" class="rating rating-loading" data-min="0" data-max="5" data-step="0.1" value="{{ $rate->averageRating }}" data-size="xs" disabled="">
                                         </td>
                                         <td>
-                                            @if(count($rate->is_set))
+                                            @if(count($rate->is_set)>0)
                                             <a class="btn btn-primary btn-sm" disabled>Done</a>
                                             @else
                                             <a href="{{ route('reviews.show',$rate->id) }}" class="btn btn-primary btn-sm" >View</a>

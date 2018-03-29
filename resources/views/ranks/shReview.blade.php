@@ -24,7 +24,7 @@
                                                 <input id="input-1" name="rate" class="rating rating-loading" data-min="0" data-max="5" data-step="1" value="{{ $review->userAverageRating }}" data-size="xs">
                                                 <input type="hidden" name="id" required="" value="{{ $review->id }}">
                                                 <br/>
-                                                <button class="btn btn-success">Submit Review</button>
+                                                <button class="btn btn-dark">Submit</button>
                                             </div>
                                         </div>
                                     </div>

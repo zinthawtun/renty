@@ -67,14 +67,14 @@ class UserController extends Controller
 
     public function lReview(){
 
-        $lrates = User::where('role_id', '2')->simplePaginate(10);
+        $lrates = User::where('role_id', 2)->simplePaginate(10)->all();
         return view('ranks.lreviews', compact('lrates') );
 
     }
 
     public function tReview(){
 
-        $trates = User::where('role_id', '1')->simplePaginate(10);
+        $trates = User::where('role_id', 1)->simplePaginate(10)->all();
         return view('ranks.treviews', compact('trates') );
     }
 
@@ -87,6 +87,7 @@ class UserController extends Controller
 
     public function postReview(Request $request)
     {
+        $user = auth()->user();
         request()->validate(['rate' => 'required']);
         $review = User::find($request->id);
 
@@ -99,11 +100,15 @@ class UserController extends Controller
 
         $review->ratings()->save($rating);
 
-        if($review->role->id == 2){
-            return redirect()->route('tenantReview')->with('status', 'Thanks, You have ranked a user.');
+        if($user->role_id==2)
+        {
+            $trates = User::where('role_id', 1)->simplePaginate(10)->all();
+            return view('ranks.treviews',compact('trates'))->with('status', 'Thanks, You have ranked a user.');
         }
-        else{
-            return redirect()->route('landlordReview')->with('status', 'Thanks, You have ranked a user.');
+        if($user->role_id==1)
+        {
+            $lrates = User::where('role_id', 2)->simplePaginate(10)->all();
+            return view('ranks.lreviews', compact('lrates'))->with('status', 'Thanks, You have ranked a user.');
         }
 
     }

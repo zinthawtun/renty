@@ -24,12 +24,7 @@
                     @endif
                     <script>
                         function myFunction() {
-                            var r = confirm("Are you sure?");
-                            if (r==true) {
-                                window.location.href = "/home";
-                            } else {
-                                window.location.href = "/home";
-                            }
+                            confirm("Are you sure");
                         }
                     </script>
                 </div>
