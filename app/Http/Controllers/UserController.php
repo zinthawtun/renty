@@ -74,7 +74,7 @@ class UserController extends Controller
 
 
 
-        return view('profile', array('user' => Auth::user()) );
+        return view('profile.profile', array('user' => Auth::user()) )->with('status','Successful!');
 
     }
 

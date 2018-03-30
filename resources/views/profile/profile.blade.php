@@ -7,6 +7,11 @@
     <!--suppress ALL -->
     <div class="container">
         <div class="row">
+            @if (session('status'))
+                <div class="alert alert-success">
+                    {{ session('status') }}
+                </div>
+            @endif
             @if (count($errors) > 0)
 
                 <div class="alert alert-danger">
