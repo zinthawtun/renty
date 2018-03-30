@@ -23,7 +23,20 @@ class UserController extends Controller
     }
 
     public function profile(){
-        return view('profile', array('user' => Auth::user()) );
+        return view('profile.profile', array('user' => Auth::user()) );
+    }
+
+    public function profileEdit(){
+        return view('profile.edit', array('user' => Auth::user()) );
+    }
+
+    public function profileUpdate($id, Request $request){
+
+        $user = User::find($id);
+        $user->name = $request['name'];
+        $user->email = $request['email'];
+        $user->save();
+        return view('profile.profile', array('user' => Auth::user()) )->with('status', 'Successfully updated');
     }
 
     public function update_avatar(Request $request){

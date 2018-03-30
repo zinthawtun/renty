@@ -22,6 +22,10 @@ Route::get('/home', 'HomeController@index')->name('home');
 
 Route::get('profile', 'UserController@profile');
 
+Route::get('profile/edit', 'UserController@profileEdit')->name('profileEdit');
+
+Route::put('profile/update/{id}', 'UserController@profileUpdate')->name('profileUpdate');
+
 Route::post('profile', 'UserController@update_avatar');
 
 Route::get('/user/verify/{token}', 'Auth\RegisterController@verifyUser');

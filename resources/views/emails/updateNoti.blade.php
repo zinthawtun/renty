@@ -8,7 +8,7 @@
 {{$user = auth()->user()}}
 <h2>Hello  {{$e_user->name}}</h2>
 <br/>
-You have new message sent by {{$user->name}}<h4><b>{{$notification['message']}}</b></h4> , Look it it
+You have new message sent by {{$user->name}}<h4><b>{{$notification['message']}}</b></h4> , Look at it.
 <br/>
 <a href="{{url('home')}}"><h3>Join your property Page.</h3></a>
 </body>

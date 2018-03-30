@@ -26,6 +26,7 @@
                     <div id="file-selected"></div>
                     @csrf
                     <input type="submit" id="but1" class="pull-right btn btn-sm btn-primary">
+                    <a class="btn btn-sm btn-light border-left" href="{{route('profileEdit', $user->id)}}" role="button">Edit Profile</a> &nbsp;
                 </form>
             </div>
         </div>

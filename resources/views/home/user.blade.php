@@ -8,8 +8,8 @@
         @if($user->role->name == 'Landlord')
             <br>
             <div> <p><a class="btn btn-sm btn-dark" href="{{route('boards.create')}}" role="button">Post New Message</a></p> </div>
-            <div> <p><a class="btn btn-sm btn-dark" href="{{route('boards.show', $user->id)}}" role="button">Show my posts</a></p> </div>
-            <div> <p><a class="btn btn-sm btn-dark" href="{{route('properties.create')}}" role="button">Create Property</a></p> </div>
+            <div> <p><a class="btn btn-sm btn-dark" href="{{route('boards.show', $user->id)}}" role="button">Manage My Posts</a></p> </div>
+            <div> <p><a class="btn btn-sm btn-success" href="{{route('properties.create')}}" role="button">Create Property</a></p> </div>
         @endif
         <div> <p><a class="btn btn-sm btn-primary" href="{{route('boards.index') }}" role="button">See Announcements</a></p> </div>
     </div>

@@ -27,7 +27,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="email" class="col-md-4 col-form-label text-md-right">Date</label>
+                                <label for="email" class="col-md-4 col-form-label text-md-right">Expiry Date</label>
 
                                 <div class="col-md-4">
 
