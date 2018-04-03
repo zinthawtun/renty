@@ -16,13 +16,24 @@ env_variables:
   CACHE_DRIVER: database
   SESSION_DRIVER: database
   ## Set these environment variables according to your CloudSQL configuration.
-  DB_HOST: localhost
-  DB_DATABASE: laravel
-  DB_USERNAME: root
-  DB_PASSWORD: Laravel1234
-  DB_SOCKET: "/cloudsql/laravel-mysql1"
+  MYSQL_HOST: localhost
+  MYSQL_PORT: 3306
+  MYSQL_DATABASE: cloud_db
+  MYSQL_USER: root
+  MYSQL_PASSWORD: zinthawtun93(#
+  DB_SOCKET: "/cloudsql/school-coursework-001:europe-west2:lara-cloud"
+  REDIS_HOST: localhost
+  REDIS_PORT: 6379
+  MAIL_DRIVER: mailgun
+  MAIL_HOST: smtp.mailgun.org
+  MAIL_PORT: 587
+  MAIL_USERNAME: postmaster@renty.pw
+  MAIL_PASSWORD: d8880030e34c9c888d8d90fcbc1bef69-833f99c3-1799254a
+  MAIL_ENCRYPTION: tls
+  MAILGUN_DOMAIN: renty.pw
+  MAILGUN_SECRET: key-1bd7075ac06bed36c6a7030c0b7e4a83
 
 beta_settings:
     # for Cloud SQL, set this value to the Cloud SQL connection name,
     # e.g. "project:region:cloudsql-instance"
-    cloud_sql_instances: "laravelmysql1"
+    cloud_sql_instances: "school-coursework-001:europe-west2:lara-cloud"
