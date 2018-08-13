@@ -6,3 +6,6 @@ Landlords can register for a user account and log in. A landlord can create, upd
 
 This project is created based on laravel framework and used external library package for user ratings. 
 
+Laravel 5.6
+Bootstrap 4
+Mailgun
