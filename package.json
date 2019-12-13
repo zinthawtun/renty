@@ -22,6 +22,6 @@
     "dependencies": {
         "bootstrap-rating": "0.0.1",
         "bootstrap4-datetimepicker": "^5.2.3",
-        "npm": "^5.8.0"
+        "npm": "^6.13.4"
     }
 }
